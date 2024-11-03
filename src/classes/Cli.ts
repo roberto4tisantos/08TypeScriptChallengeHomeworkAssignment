@@ -68,9 +68,18 @@ class Cli {
         if (answers.vehicleType === 'Car') {
           // create a car
           this.createCar();
-        }
+        } else {
         // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
-      });
+          if (answers.vehicleType === 'truck') {
+            // create a truck
+            this.createTruck();
+          } else {
+            if (answers.vehicleType === 'motorbike') {
+              // create a motorbike
+              this.createMotorbike();
+            }
+          }        
+        }});
   }
 
   // method to create a car
