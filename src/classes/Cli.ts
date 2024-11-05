@@ -10,12 +10,12 @@ class Cli {
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
-  vehicles: (Car)[];
+  vehicles: (Car)[] | (Truck)[] | (Motorbike)[];
   selectedVehicleVin: string | undefined;
   exit: boolean = false;
 
   // TODO: Update the constructor to accept Truck and Motorbike objects as well
-  constructor(vehicles: (Car)[]) {
+  constructor(vehicles: (Car)[] | (Truck)[] | (Motorbike)[]) {
     this.vehicles = vehicles;
   }
 
@@ -61,7 +61,7 @@ class Cli {
           name: 'vehicleType',
           message: 'Select a vehicle type',
           // TODO: Update the choices array to include Truck and Motorbike
-          choices: ['Car', 'truck', 'motorbike'],
+          choices: ['Car', 'Truck', 'Motorbike'],
         },
       ])
       .then((answers) => {
@@ -70,11 +70,11 @@ class Cli {
           this.createCar();
         } else {
         // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
-          if (answers.vehicleType === 'truck') {
+          if (answers.vehicleType === 'Truck') {
             // create a truck
             this.createTruck();
           } else {
-            if (answers.vehicleType === 'motorbike') {
+            if (answers.vehicleType === 'Motorbike') {
               // create a motorbike
               this.createMotorbike();
             }
@@ -130,7 +130,7 @@ class Cli {
           []
         );
         // push the car to the vehicles array
-        this.vehicles.push(car);
+        this.vehicles.push();
         // set the selectedVehicleVin to the vin of the car
         this.selectedVehicleVin = car.vin;
         // perform actions on the car
@@ -183,6 +183,26 @@ class Cli {
         // TODO: push the truck to the vehicles array
         // TODO: set the selectedVehicleVin to the vin of the truck
         // TODO: perform actions on the truck
+        const truck = new Truck(
+          // TODO: The generateVin method is static and should be called using the class name Cli, 
+          //make sure to use Cli.generateVin() for creating a truck and motorbike as well!
+          Cli.generateVin(),
+          answers.vin,
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          answers.topSpeed,          
+          //[],
+          parseInt(answers.towingCapacity),
+        );
+        // push the car to the vehicles array
+        this.vehicles.push(Car);
+        // set the selectedVehicleVin to the vin of the car
+        this.selectedVehicleVin = Car.vin;
+        // perform actions on the car
+        this.performActions();        
       });
   }
 
