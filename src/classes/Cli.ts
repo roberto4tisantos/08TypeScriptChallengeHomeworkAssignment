@@ -402,10 +402,14 @@ class Cli {
         }
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. 
         //Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
-        else if (answers.action === 'Tow' && answers.vehicleType === 'Truck') {
-          //RFS
-          // Truck.tow(vehicle);
-          // this.vehicles.  tow(vehicle);
+        else if (answers.action === 'Tow') {
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin && this.selectedVehicleVin === 'Truck') {              .
+              //Truck.tow(this.vehicles[i]); RFS
+            }
+          }          
+          // Truck.tow(vehicle); RFS
+          // this.vehicles.tow(vehicle); RFS
         }              
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
         else if (answers.action === 'wheelie' && answers.vehicleType === 'Motorbike') { 
