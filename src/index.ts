@@ -20,12 +20,13 @@ const car1 = new Car(
   2021,
   3000,
   130,
-  []
+  [],
+  100
 );
 
 // TODO: uncomment once motorbikes are implemented
 const motorbike1Wheels = [new Wheel(17, "Michelin"), new Wheel(17, "Michelin")];
-const motorbike1 = new Motorbike(Cli.generateVin(), "black", "Harley Davidson", "Sportster", 2021, 500, 125, motorbike1Wheels);
+const motorbike1 = new Motorbike(Cli.generateVin(), "black", "Harley Davidson", "Sportster", 2021, 500, 125, motorbike1Wheels,100);
 
 // push vehicles to array
 // TODO: uncomment once trucks are implemented
