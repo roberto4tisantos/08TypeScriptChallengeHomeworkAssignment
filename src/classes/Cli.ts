@@ -4,9 +4,11 @@ import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
 import Wheel from "./Wheel.js";
+import AbleToTow from "../interfaces/AbleToTow.js";
+import Vehicle from "./Vehicle.js";
 
 // define the Cli class
-class Cli {
+class Cli{
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
@@ -404,16 +406,26 @@ class Cli {
         //Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         else if (answers.action === 'Tow') {
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i].vin === this.selectedVehicleVin && this.selectedVehicleVin === 'Truck') {              .
-              //Truck.tow(this.vehicles[i]); RFS
+            if (this.vehicles[i].vin === this.selectedVehicleVin && this.selectedVehicleVin === 'Truck') {
+              this.findVehicleToTow(new Truck( this.vehicles[i].vin,
+                                               this.vehicles[i].color,
+                                               this.vehicles[i].make,
+                                               this.vehicles[i].model,
+                                               this.vehicles[i].year,
+                                               this.vehicles[i].weight,
+                                               this.vehicles[i].topSpeed,
+                                               this.vehicles[i].wheels,
+                                               this.vehicles[i].towingCapacity )); //vehicles: (Car)[] | (Truck)[] | (Motorbike)[];
             }
-          }          
-          // Truck.tow(vehicle); RFS
-          // this.vehicles.tow(vehicle); RFS
+          }
         }              
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
-        else if (answers.action === 'wheelie' && answers.vehicleType === 'Motorbike') { 
-          //RFS
+        else if (answers.action === 'Wheelie') { 
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin && this.selectedVehicleVin === 'Motorbike') {
+              this.vehicles[i].wheelie();
+            }
+          }
         }
 
         else if (answers.action === 'Select or create another vehicle') {
