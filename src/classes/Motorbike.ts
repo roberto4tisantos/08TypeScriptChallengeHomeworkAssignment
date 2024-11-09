@@ -44,7 +44,7 @@ class Motorbike extends Vehicle {
       this.weight = weight;
       this.topSpeed = topSpeed;
       // Check if the wheels array has 2 elements
-      // If not, create 4 new Wheel objects
+      // If not, create 2 new Wheel objects
       // Otherwise, use the provided wheels array
       if (wheels.length !== 2) {
         this.wheels = [new Wheel(), new Wheel()];
@@ -79,6 +79,7 @@ class Motorbike extends Vehicle {
     console.log(`Year: ${this.year}`);
     console.log(`Weight: ${this.weight} lbs`);
     console.log(`Top Speed: ${this.topSpeed} mph`);
+    console.log(`Towing Capacity ${this.towingCapacity} capacity`);    
 
     // Print details of the wheels
     console.log(
