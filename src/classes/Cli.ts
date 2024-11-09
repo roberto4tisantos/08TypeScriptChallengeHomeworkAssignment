@@ -137,8 +137,7 @@ class Cli{
       .then((answers) => {
         const car = new Car(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          Cli.generateVin(),
-          answers.vin,
+          answers.vin = Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
