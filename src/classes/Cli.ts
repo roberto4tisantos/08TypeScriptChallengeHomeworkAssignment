@@ -90,11 +90,6 @@ class Cli{
       .prompt([
         {
           type: 'input',
-          name: 'vin',
-          message: 'Enter Vin',
-        },        
-        {
-          type: 'input',
           name: 'color',
           message: 'Enter Color',
         },
@@ -137,7 +132,7 @@ class Cli{
       .then((answers) => {
         const car = new Car(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          answers.vin = Cli.generateVin(),
+          Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
@@ -159,12 +154,7 @@ class Cli{
   // method to create a truck
   createTruck(): void {
     inquirer
-      .prompt([
-        {
-          type: 'input',
-          name: 'vin',
-          message: 'Enter Vin',
-        },                
+      .prompt([           
         {
           type: 'input',
           name: 'color',
@@ -214,7 +204,7 @@ class Cli{
         const truck = new Truck(
           // TODO: The generateVin method is static and should be called using the class name Cli, 
           //make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          answers.vin = Cli.generateVin(),
+          Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
@@ -237,11 +227,6 @@ class Cli{
   createMotorbike(): void {
     inquirer
       .prompt([
-        {
-          type: 'input',
-          name: 'vin',
-          message: 'Enter Vin',
-        },                
         {
           type: 'input',
           name: 'color',
@@ -310,7 +295,7 @@ class Cli{
         // TODO: perform actions on the motorbike
         const motorbike = new Motorbike(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          answers.vin = Cli.generateVin(),
+          Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
