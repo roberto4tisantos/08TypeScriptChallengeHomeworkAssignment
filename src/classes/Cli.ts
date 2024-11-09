@@ -138,7 +138,7 @@ class Cli{
           parseInt(answers.towingCapacity)
         );
         // push the car to the vehicles array
-        this.vehicles.push(answers.car);
+        this.vehicles.push(car);
         // set the selectedVehicleVin to the vin of the car
         car.vin = answers.vin;
         // perform actions on the car
@@ -205,7 +205,7 @@ class Cli{
           parseInt(answers.towingCapacity),
         );
         // push the truck to the vehicles array
-        this.vehicles.push(answers.truck);
+        this.vehicles.push(truck);
         // set the selectedVehicleVin to the vin of the car
         truck.vin = answers.vin;        
         // perform actions on the car
@@ -291,7 +291,7 @@ class Cli{
           parseInt(answers.towingCapacity),
         );
         // push the truck to the motorbike array
-        this.vehicles.push(answers.motorbike);
+        this.vehicles.push(motorbike);
         // set the selectedVehicleVin to the vin of the car
         motorbike.vin = answers.vin;             
 
