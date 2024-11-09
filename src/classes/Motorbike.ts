@@ -15,6 +15,7 @@ class Motorbike extends Vehicle {
   weight: number;
   topSpeed: number;
   wheels: Wheel[];  
+  towingCapacity!: number;
 
   // TODO: Create a constructor that accepts the properties of the Motorbike class
   // TODO: The constructor should call the constructor of the parent class, Vehicle
@@ -28,7 +29,8 @@ class Motorbike extends Vehicle {
       year: number,
       weight: number,
       topSpeed: number,
-      wheels: Wheel[]
+      wheels: Wheel[],
+      towingCapacity: number,
     ) {
       // Call the constructor of the parent class, Vehicle
       super();
@@ -49,6 +51,8 @@ class Motorbike extends Vehicle {
       } else {
         this.wheels = wheels;
       }
+
+      this.towingCapacity = towingCapacity;
     }
 
 
