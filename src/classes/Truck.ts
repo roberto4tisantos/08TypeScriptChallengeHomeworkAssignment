@@ -44,18 +44,18 @@ class Truck extends Vehicle implements AbleToTow {
       this.year = year;
       this.weight = weight;
       this.topSpeed = topSpeed;
-      this.wheels = wheels;
-
       // Check if the wheels array has 4 elements
       // If not, create 4 new Wheel objects
       // Otherwise, use the provided wheels array
-      if (this.wheels.length !== 4) {
+      if (wheels.length !== 4) {
         this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
       } else {
         this.wheels = wheels;
       }      
+
+      this.towingCapacity = towingCapacity;      
     }  
-      
+
     //Get make model
     get getMakeModel(): string {
       return this.make;
@@ -94,8 +94,7 @@ class Truck extends Vehicle implements AbleToTow {
     console.log(`Year: ${this.year}`);
     console.log(`Weight: ${this.weight} lbs`);
     console.log(`Top Speed: ${this.topSpeed} mph`);
-    //towingCapacity
-    console.log(`towingCapacity ${this.towingCapacity}`);
+    console.log(`Towing Capacity ${this.towingCapacity} capacity`);
 
     // Print details of the wheels
     console.log(
