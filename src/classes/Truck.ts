@@ -62,7 +62,7 @@ class Truck extends Vehicle implements AbleToTow {
     }
 
   // TODO: Implement the tow method from the AbleToTow interface
-  tow (vehicle: Truck | Motorbike | Car): void {
+  tow (vehicle: Truck): void {
     // TODO: Get the make an model of the vehicle if it exists
     vehicle.make = this.getMakeModel;
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
