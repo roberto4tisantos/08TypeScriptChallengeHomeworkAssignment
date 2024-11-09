@@ -120,11 +120,6 @@ class Cli{
         },
         {
           type: 'input',
-          name: 'wheels'
-          //message: '4 wheels',
-        },          
-        {
-          type: 'input',
           name: 'towingCapacity',
           message: 'Enter Towing Capacity',
         },  
@@ -139,7 +134,7 @@ class Cli{
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          [answers.wheels,answers.wheels,answers.wheels,answers.wheels],
+          [],
           parseInt(answers.towingCapacity)
         );
         // push the car to the vehicles array
@@ -187,11 +182,6 @@ class Cli{
         },
         {
           type: 'input',
-          name: 'wheels'
-          //message: '4 wheels',
-        },                  
-        {
-          type: 'input',
           name: 'towingCapacity',
           message: 'Enter Towing Capacity',
         },
@@ -211,7 +201,7 @@ class Cli{
           parseInt(answers.year),
           parseInt(answers.weight),
           answers.topSpeed,          
-          [answers.wheels,answers.wheels,answers.wheels,answers.wheels],
+          [],
           parseInt(answers.towingCapacity),
         );
         // push the truck to the vehicles array
@@ -279,11 +269,6 @@ class Cli{
         },
         {
           type: 'input',
-          name: 'wheels'
-          //message: '4 wheels',
-        },                  
-        {
-          type: 'input',
           name: 'towingCapacity',
           message: 'Enter Towing Capacity',
         },        
@@ -302,7 +287,7 @@ class Cli{
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          [answers.wheels,answers.wheels],
+          [],
           parseInt(answers.towingCapacity),
         );
         // push the truck to the motorbike array
