@@ -13,6 +13,7 @@ class Car extends Vehicle {
   weight: number;
   topSpeed: number;
   wheels: Wheel[];
+  towingCapacity!: number;
 
   // Constructor for the Car class
   constructor(
@@ -23,7 +24,8 @@ class Car extends Vehicle {
     year: number,
     weight: number,
     topSpeed: number,
-    wheels: Wheel[]
+    wheels: Wheel[],
+    towingCapacity: number,
   ) {
     // Call the constructor of the parent class, Vehicle
     super();
@@ -44,6 +46,8 @@ class Car extends Vehicle {
     } else {
       this.wheels = wheels;
     }
+
+    this.towingCapacity = towingCapacity;
   }
 
   // Override the printDetails method from the Vehicle class
