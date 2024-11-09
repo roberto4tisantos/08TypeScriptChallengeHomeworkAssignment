@@ -122,12 +122,12 @@ class Cli{
           type: 'input',
           name: 'towingCapacity',
           message: 'Enter Towing Capacity',
-        },  
+        }, 
       ])
       .then((answers) => {
         const car = new Car(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          Cli.generateVin(),
+          answers.vin = Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
@@ -194,7 +194,7 @@ class Cli{
         const truck = new Truck(
           // TODO: The generateVin method is static and should be called using the class name Cli, 
           //make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          Cli.generateVin(),
+          answers.vin = Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
@@ -280,7 +280,7 @@ class Cli{
         // TODO: perform actions on the motorbike
         const motorbike = new Motorbike(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          Cli.generateVin(),
+          answers.vin = Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
@@ -307,7 +307,7 @@ class Cli{
       .prompt([
         {
           type: 'list',
-          name: 'vehicleToTow',
+          name: 'vehicleType',
           message: 'Select a vehicle to tow',
           choices: this.vehicles.map((vehicle) => {
             return {
