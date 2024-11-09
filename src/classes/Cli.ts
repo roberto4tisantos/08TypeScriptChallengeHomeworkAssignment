@@ -90,6 +90,11 @@ class Cli{
       .prompt([
         {
           type: 'input',
+          name: 'vin',
+          message: 'Enter Vin',
+        },        
+        {
+          type: 'input',
           name: 'color',
           message: 'Enter Color',
         },
@@ -118,24 +123,35 @@ class Cli{
           name: 'topSpeed',
           message: 'Enter Top Speed',
         },
+        {
+          type: 'input',
+          name: 'wheels'
+          //message: '4 wheels',
+        },          
+        {
+          type: 'input',
+          name: 'towingCapacity',
+          message: 'Enter Towing Capacity',
+        },  
       ])
       .then((answers) => {
         const car = new Car(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
           Cli.generateVin(),
+          answers.vin,
           answers.color,
           answers.make,
           answers.model,
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          [],
-          parseInt(answers.towingCapacity),
+          [answers.wheels,answers.wheels,answers.wheels,answers.wheels],
+          parseInt(answers.towingCapacity)
         );
         // push the car to the vehicles array
-        this.vehicles.push();
+        this.vehicles.push(answers.car);
         // set the selectedVehicleVin to the vin of the car
-        this.selectedVehicleVin = car.vin;
+        car.vin = answers.vin;
         // perform actions on the car
         this.performActions();
       });
@@ -147,6 +163,11 @@ class Cli{
       .prompt([
         {
           type: 'input',
+          name: 'vin',
+          message: 'Enter Vin',
+        },                
+        {
+          type: 'input',
           name: 'color',
           message: 'Enter Color',
         },
@@ -175,6 +196,11 @@ class Cli{
           name: 'topSpeed',
           message: 'Enter Top Speed',
         },
+        {
+          type: 'input',
+          name: 'wheels'
+          //message: '4 wheels',
+        },                  
         {
           type: 'input',
           name: 'towingCapacity',
@@ -189,21 +215,20 @@ class Cli{
         const truck = new Truck(
           // TODO: The generateVin method is static and should be called using the class name Cli, 
           //make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          Cli.generateVin(),
-          answers.vin,
+          answers.vin = Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
           parseInt(answers.year),
           parseInt(answers.weight),
           answers.topSpeed,          
-          //[],
+          [answers.wheels,answers.wheels,answers.wheels,answers.wheels],
           parseInt(answers.towingCapacity),
         );
-        // push the car to the vehicles array
-        this.vehicles.push();
+        // push the truck to the vehicles array
+        this.vehicles.push(answers.truck);
         // set the selectedVehicleVin to the vin of the car
-        this.selectedVehicleVin = truck.vin;
+        truck.vin = answers.vin;        
         // perform actions on the car
         this.performActions();        
       });
@@ -213,6 +238,11 @@ class Cli{
   createMotorbike(): void {
     inquirer
       .prompt([
+        {
+          type: 'input',
+          name: 'vin',
+          message: 'Enter Vin',
+        },                
         {
           type: 'input',
           name: 'color',
@@ -263,6 +293,16 @@ class Cli{
           name: 'rearWheelBrand',
           message: 'Enter Rear Wheel Brand',
         },
+        {
+          type: 'input',
+          name: 'wheels'
+          //message: '4 wheels',
+        },                  
+        {
+          type: 'input',
+          name: 'towingCapacity',
+          message: 'Enter Towing Capacity',
+        },        
       ])
       .then((answers) => {
         // TODO: Use the answers object to pass the required properties to the Motorbike constructor
@@ -271,20 +311,21 @@ class Cli{
         // TODO: perform actions on the motorbike
         const motorbike = new Motorbike(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          Cli.generateVin(),
+          answers.vin = Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          [],
+          [answers.wheels,answers.wheels],
           parseInt(answers.towingCapacity),
         );
-        // push the car to the vehicles array
-        this.vehicles.push();
+        // push the truck to the motorbike array
+        this.vehicles.push(answers.motorbike);
         // set the selectedVehicleVin to the vin of the car
-        this.selectedVehicleVin = motorbike.vin;
+        motorbike.vin = answers.vin;             
+
         // perform actions on the car
         this.performActions();        
       });
