@@ -1,9 +1,10 @@
 // Importing Vehicle and Wheel classes
+import AbleToTow from '../interfaces/AbleToTow.js';
 import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
 
 // TODO: The Motorbike class should extend the Vehicle class
-class Motorbike extends Vehicle {
+class Motorbike extends Vehicle implements AbleToTow {
   // TODO: Declare properties of the Motorbike class
   // TODO: The properties should include vin, color, make, model, year, weight, top speed, and wheels
   // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[])  
@@ -55,6 +56,24 @@ class Motorbike extends Vehicle {
       this.towingCapacity = towingCapacity;
     }
 
+    //Get make model
+    get getMakeModel(): string {
+      return this.make;
+    }
+
+  // TODO: Implement the tow method from the AbleToTow interface
+  tow (vehicle: Motorbike): void {
+    // TODO: Get the make an model of the vehicle if it exists
+    vehicle.make = this.getMakeModel;
+    // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
+    // TODO: If it is, log that the vehicle is being towed
+    // TODO: If it is not, log that the vehicle is too heavy to be towed
+    if ( vehicle.weight <= this.towingCapacity ) {
+      console.log(`the vehicle is being towed`);
+    } else {
+      console.log(`the vehicle is too heavy to be towed`);
+    }
+  }
 
   // TODO: Implement the wheelie method
   // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
